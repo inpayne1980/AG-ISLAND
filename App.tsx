@@ -68,7 +68,7 @@ function App() {
 
   const handleNewUpload = (newVariants: GeneratedContent[]) => {
     if (rateLimit.uploads <= 0) {
-      alert("Caribbean weather delay: Rate limit exceeded. Refresh in 1 hour.");
+      alert("Caribbean weather delay: Rate limit exceeded. Try in 1 hour.");
       return;
     }
     if (subscription.tier === 'individual' && content.length + newVariants.length > subscription.heroAdsLimit) {
@@ -100,7 +100,7 @@ function App() {
     <div className="min-h-screen bg-sand font-sans selection:bg-turquoise/30 selection:text-turquoise">
       <nav className="sticky top-0 z-[100] px-4 py-4 no-print">
         <div className="max-w-[1600px] mx-auto">
-          <div className="neu-card bg-sand/80 backdrop-blur-md px-8 py-4 flex justify-between items-center h-24">
+          <div className="neu-card bg-sand/90 backdrop-blur-md px-8 py-4 flex justify-between items-center h-24 shadow-neu-flat">
             <div className="flex items-center gap-6">
               <div 
                 className="flex items-center gap-3 cursor-pointer group" 
@@ -108,7 +108,7 @@ function App() {
                 role="link"
                 aria-label="Home"
               >
-                <div className="bg-turquoise h-12 w-12 rounded-2xl flex items-center justify-center shadow-neu-sm group-hover:rotate-12 transition-transform">
+                <div className="bg-turquoise h-12 w-12 rounded-2xl flex items-center justify-center shadow-neu-sm group-hover:rotate-6 transition-transform">
                   <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
@@ -117,11 +117,11 @@ function App() {
                   <span className="text-xl font-black tracking-tighter leading-none text-slate-900 uppercase">
                     AdGenius <span className="text-coral">Island</span>
                   </span>
-                  <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest mt-1">Premium AI Resort</span>
+                  <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest mt-1">Creative Sandbox v6.1</span>
                 </div>
               </div>
               
-              <div className="hidden xl:flex items-center gap-1 neu-inset p-1">
+              <div className="hidden xl:flex items-center gap-1 neu-inset p-1 bg-sand/30">
                 {(['upload', 'queue', 'library', 'calendar'] as AppView[]).map((v) => (
                   <button 
                     key={v}
@@ -136,7 +136,7 @@ function App() {
             
             <div className="flex items-center gap-8">
               <div className="hidden lg:flex gap-6 items-center px-6 border-r border-deepSand">
-                <RateLimiterUI label="AI Surge" current={rateLimit.generations} max={10} />
+                <RateLimiterUI label="AI Limit" current={rateLimit.generations} max={10} />
                 <RateLimiterUI label="CDN Flow" current={rateLimit.uploads} max={5} />
               </div>
 
@@ -145,16 +145,20 @@ function App() {
               </div>
 
               <div className="flex items-center gap-3">
-                 <Button variant="neumorphic" onClick={() => setView('admin')} className="p-3">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                 </Button>
+                 <button 
+                    onClick={() => setView('admin')} 
+                    className={`p-3 rounded-2xl transition-all shadow-neu-sm active:shadow-neu-pressed ${view === 'admin' ? 'bg-turquoise text-white' : 'neu-button text-slate-400 hover:text-turquoise'}`}
+                    title="Project Vault (Admin)"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                 </button>
                  <div 
                     onClick={() => setView('privacy')} 
                     className="neu-button p-1 rounded-full cursor-pointer hover:ring-2 hover:ring-turquoise transition-all"
                     role="button"
                     aria-label="Profile Settings"
                   >
-                  <img className="h-10 w-10 rounded-full border-2 border-brightSand shadow-inner" src={profile.avatar} alt="Profile" />
+                  <img className="h-10 w-10 rounded-full border-2 border-brightSand" src={profile.avatar} alt="Profile" />
                 </div>
               </div>
             </div>
@@ -162,7 +166,7 @@ function App() {
         </div>
       </nav>
 
-      <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pb-24 animate-fade-in" role="main">
+      <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pb-32 animate-fade-in" role="main">
         {view === 'queue' && (
           <div className="mb-12">
             <OnboardingChecklist items={onboardingItems} />
@@ -171,9 +175,9 @@ function App() {
 
         {isLocked ? (
           <div className="max-w-xl mx-auto mt-20 p-12 neu-card bg-brightSand text-center">
-             <h2 className="text-3xl font-black mb-4 uppercase tracking-tighter text-slate-800">Resort Access Denied</h2>
-             <p className="text-slate-500 mb-10 text-sm font-medium leading-relaxed">Your subscription has vanished like footprints in the sand. Top up your account to regain AI creative powers.</p>
-             <Button variant="primary" className="w-full h-14">Refresh Passport — $29/mo</Button>
+             <h2 className="text-3xl font-black mb-4 uppercase tracking-tighter text-slate-800">Passport Expired</h2>
+             <p className="text-slate-500 mb-10 text-[10px] font-bold uppercase tracking-widest leading-relaxed">Your creative stay has ended. Contact an administrator to manually override your tier and regain island access (Constraint 8.5).</p>
+             <Button variant="primary" className="w-full h-14" onClick={() => alert("Notification sent to project owner.")}>Request Re-entry</Button>
           </div>
         ) : (
           <div className="animate-fade-in">
@@ -192,7 +196,7 @@ function App() {
             {view === 'privacy' && <PrivacySettings />}
             {view === 'public' && (
               <div className="py-12 flex justify-center">
-                <div className="w-full max-w-md neu-card p-4 bg-slate-900 border-[12px] border-slate-900">
+                <div className="w-full max-w-md neu-card p-4 bg-slate-900 border-[12px] border-slate-900 shadow-2xl">
                   <div className="h-[800px] overflow-y-auto no-scrollbar rounded-[2rem]">
                     <PublicProfile profile={profile} approvedContent={approvedContent} />
                   </div>
@@ -204,17 +208,29 @@ function App() {
         )}
       </main>
 
+      {/* Persistent Action Dock */}
       <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] no-print">
-        <div className="neu-card bg-sand/90 backdrop-blur-md px-6 py-3 flex gap-4 items-center border border-deepSand">
+        <div className="neu-card bg-sand/90 backdrop-blur-xl px-8 py-4 flex gap-6 items-center border border-deepSand shadow-2xl">
           <Button 
             variant={view === 'upload' ? 'secondary' : 'primary'} 
             onClick={() => setView('upload')}
-            className="h-12 w-48 shadow-lg"
+            className="h-12 w-56 shadow-lg"
           >
-            {view === 'upload' ? 'Abort Upload' : 'New Creation'}
+            {view === 'upload' ? 'Cancel Creation' : 'New AI Generation'}
           </Button>
-          <div className="w-[1px] h-8 bg-deepSand"></div>
-          <UsageMeters subscription={subscription} usage={usage} />
+          <div className="w-[1px] h-10 bg-deepSand"></div>
+          <div className="flex gap-1">
+             {(['social', 'analytics', 'marketplace', 'rates', 'payments'] as AppView[]).map(v => (
+               <button 
+                 key={v}
+                 onClick={() => setView(v)}
+                 className={`p-2 rounded-xl transition-all ${view === v ? 'text-turquoise bg-sand/50 shadow-neu-sm' : 'text-slate-400 hover:text-turquoise'}`}
+                 title={v.toUpperCase()}
+               >
+                 <div className="w-5 h-5 flex items-center justify-center font-black text-[8px] uppercase">{v.slice(0, 2)}</div>
+               </button>
+             ))}
+          </div>
         </div>
       </div>
 

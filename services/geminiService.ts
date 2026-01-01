@@ -39,17 +39,17 @@ export async function extractPalette(base64Data: string): Promise<string[]> {
         }
       }
     });
-    // Access the .text property directly (do not call as a function)
     const text = response.text;
-    return JSON.parse(text || '["#6366f1", "#10b981", "#8b5cf6"]');
+    return JSON.parse(text || '["#40E0D0", "#FF7F50", "#F4E7D3"]');
   } catch (e) {
     console.error("Palette extraction failed:", e);
-    return ["#6366f1", "#10b981", "#8b5cf6"];
+    return ["#40E0D0", "#FF7F50", "#F4E7D3"];
   }
 }
 
 /**
- * Regenerates a product image variant using the Gemini image editing model
+ * Regenerates a product image variant using the Gemini image editing model.
+ * Strict compliance with 8.4: No humans, no avatars, no faces. Scene-first UGC only.
  */
 export async function regenerateVariant(originalImageUrl: string, prompt: string): Promise<string | null> {
   try {
@@ -59,12 +59,18 @@ export async function regenerateVariant(originalImageUrl: string, prompt: string
       contents: {
         parts: [
           { inlineData: { data: base64Data, mimeType: 'image/png' } },
-          { text: `Edit this product photo: ${prompt}. Maintain identity, improve lighting/background. Output the modified image.` }
+          { text: `Edit this product photo: ${prompt}. 
+          
+          STRICT GUARDRAILS:
+          - Maintain the exact product identity and shape.
+          - NO HUMANS, NO FACES, NO AVATARS.
+          - NO PEOPLE in the background or foreground.
+          - Focus solely on the environment, professional lighting, and commercial background.
+          - Output a high-fidelity image that looks like professional UGC/studio photography.` }
         ]
       }
     });
 
-    // Iterate through candidates and parts to find the generated image data
     if (response.candidates && response.candidates[0].content.parts) {
       for (const part of response.candidates[0].content.parts) {
         if (part.inlineData) {
