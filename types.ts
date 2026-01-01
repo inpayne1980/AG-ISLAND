@@ -1,4 +1,7 @@
 
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
+
 export interface GeneratedContent {
   id: string;
   original_url: string;

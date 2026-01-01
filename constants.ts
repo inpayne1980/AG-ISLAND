@@ -1,17 +1,20 @@
 
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
+
 import { PresetOption, CreatorProfile, RewardTier, SocialAccount, BrandDeal, PaymentRecord, SubscriptionStatus, SecurityAuditLog } from './types';
 
 export const PRESETS: PresetOption[] = [
-  { value: 'brighter', label: 'Brighter', prompt: 'Make this product image much brighter, well-lit, and professionally vibrant.' },
-  { value: 'softer', label: 'Softer', prompt: 'Give this product image a soft, elegant glow with gentle shadows and a professional aesthetic.' },
-  { value: 'high_contrast', label: 'High Contrast', prompt: 'Increase contrast and sharpness. Make the product pop against its background dramatically.' },
-  { value: 'minimalist', label: 'Minimalist', prompt: 'Apply a clean, minimalist studio lighting style with a neutral background.' },
-  { value: 'dramatic', label: 'Dramatic', prompt: 'Add dramatic, cinematic lighting to the product for a luxury feel.' },
-  { value: 'vintage', label: 'Vintage Film', prompt: 'Apply a vintage film aesthetic with warm tones, subtle film grain, and a nostalgic 1970s photography style.' },
-  { value: 'cinematic', label: 'Cinematic', prompt: 'Give the product image a cinematic movie-like appearance with dramatic teal and orange color grading and professional anamorphic lighting.' },
-  { value: 'studio', label: 'Pro Studio', prompt: 'Place the product in a high-end professional studio setting with perfect 3-point lighting and a clean, seamless backdrop.' },
-  { value: 'cyberpunk', label: 'Cyberpunk', prompt: 'Reimagine the product in a futuristic cyberpunk setting with vibrant neon lights, rain-slicked surfaces, and a high-tech atmosphere.' },
-  { value: 'watercolor', label: 'Watercolor', prompt: 'Transform the product presentation into a beautiful, artistic watercolor painting with soft edges and vibrant pigment bleeds.' },
+  { value: 'brighter', label: 'Brighter', prompt: 'Make this product image much brighter, well-lit, and professionally vibrant. NO creator payouts, NO native checkout, NO self-serve billing.' },
+  { value: 'softer', label: 'Softer', prompt: 'Give this product image a soft, elegant glow with gentle shadows and a professional aesthetic. NO creator payouts, NO native checkout, NO self-serve billing.' },
+  { value: 'high_contrast', label: 'High Contrast', prompt: 'Increase contrast and sharpness. Make the product pop against its background dramatically. NO creator payouts, NO native checkout, NO self-serve billing.' },
+  { value: 'minimalist', label: 'Minimalist', prompt: 'Apply a clean, minimalist studio lighting style with a neutral background. NO creator payouts, NO native checkout, NO self-serve billing.' },
+  { value: 'dramatic', label: 'Dramatic', prompt: 'Add dramatic, cinematic lighting to the product for a luxury feel. NO creator payouts, NO native checkout, NO self-serve billing.' },
+  { value: 'vintage', label: 'Vintage Film', prompt: 'Apply a vintage film aesthetic with warm tones, subtle film grain, and a nostalgic 1970s photography style. NO creator payouts, NO native checkout, NO self-serve billing.' },
+  { value: 'cinematic', label: 'Cinematic', prompt: 'Give the product image a cinematic movie-like appearance with dramatic teal and orange color grading and professional anamorphic lighting. NO creator payouts, NO native checkout, NO self-serve billing.' },
+  { value: 'studio', label: 'Pro Studio', prompt: 'Place the product in a high-end professional studio setting with perfect 3-point lighting and a clean, seamless backdrop. NO creator payouts, NO native checkout, NO self-serve billing.' },
+  { value: 'cyberpunk', label: 'Cyberpunk', prompt: 'Reimagine the product in a futuristic cyberpunk setting with vibrant neon lights, rain-slicked surfaces, and a high-tech atmosphere. NO creator payouts, NO native checkout, NO self-serve billing.' },
+  { value: 'watercolor', label: 'Watercolor', prompt: 'Transform the product presentation into a beautiful, artistic watercolor painting with soft edges and vibrant pigment bleeds. NO creator payouts, NO native checkout, NO self-serve billing.' },
 ];
 
 export const MOCK_PROFILE: CreatorProfile = {

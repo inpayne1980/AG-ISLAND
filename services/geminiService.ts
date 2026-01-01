@@ -1,4 +1,7 @@
 
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
+
 import { GoogleGenAI, Type } from "@google/genai";
 
 // Initialize the GoogleGenAI client using the environment variable directly.
@@ -19,6 +22,27 @@ export async function urlToBase64(url: string): Promise<string> {
 }
 
 /**
+ * Detects brand name from a product image using Gemini Vision
+ */
+export async function detectBrand(base64Data: string): Promise<string> {
+  try {
+    const response = await ai.models.generateContent({
+      model: 'gemini-3-flash-preview',
+      contents: {
+        parts: [
+          { inlineData: { data: base64Data, mimeType: 'image/png' } },
+          { text: "Extract the brand name from this product image. Return only the brand name as plain text. If no brand is visible, return 'Unknown Brand'. NO creator payouts, NO native checkout, NO self-serve billing." }
+        ]
+      }
+    });
+    return response.text?.trim() || 'Unknown Brand';
+  } catch (e) {
+    console.error("Brand detection failed:", e);
+    return 'Unknown Brand';
+  }
+}
+
+/**
  * Extracts dominant color palette from an image using Gemini
  */
 export async function extractPalette(base64Data: string): Promise<string[]> {
@@ -28,7 +52,7 @@ export async function extractPalette(base64Data: string): Promise<string[]> {
       contents: {
         parts: [
           { inlineData: { data: base64Data, mimeType: 'image/png' } },
-          { text: "Extract the 3 most dominant colors from this product image. Return them as a JSON array of hex codes." }
+          { text: "Extract the 3 most dominant colors from this product image. Return them as a JSON array of hex codes. NO creator payouts, NO native checkout, NO self-serve billing." }
         ]
       },
       config: {
@@ -66,7 +90,8 @@ export async function regenerateVariant(originalImageUrl: string, prompt: string
           - NO HUMANS, NO FACES, NO AVATARS.
           - NO PEOPLE in the background or foreground.
           - Focus solely on the environment, professional lighting, and commercial background.
-          - Output a high-fidelity image that looks like professional UGC/studio photography.` }
+          - Output a high-fidelity image that looks like professional UGC/studio photography.
+          - NO creator payouts, NO native checkout, NO self-serve billing.` }
         ]
       }
     });
