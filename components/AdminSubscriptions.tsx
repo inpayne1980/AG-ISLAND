@@ -1,3 +1,5 @@
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
 
 import React from 'react';
 import { SubscriptionTier, SubscriptionStatus } from '../types';
@@ -54,7 +56,7 @@ export const AdminSubscriptions: React.FC<AdminSubscriptionsProps> = ({ onUpdate
       <div className="mt-8 p-8 neu-inset bg-sand/30 border border-deepSand">
         <h4 className="font-black text-slate-800 uppercase text-xs mb-2">Billing Guardrail Policy</h4>
         <p className="text-[10px] text-slate-500 leading-relaxed mb-6 font-medium">
-          Self-serve billing is strictly disabled (8.5). This panel represents the backend CRM used by AdGenius support staff to manually reconcile Stripe project IDs with creator accounts. No native checkout forms are accessible to standard users.
+          Self-serve billing is strictly disabled (8.5). This panel represents the backend CRM used by AdGenius support staff to manually reconcile Stripe project IDs with creator accounts. No native checkout forms are accessible to standard users. NO creator payouts, NO native checkout, NO self-serve billing.
         </p>
         <Button variant="neumorphic" className="bg-brightSand border border-deepSand">Manual Re-Sync with Stripe</Button>
       </div>

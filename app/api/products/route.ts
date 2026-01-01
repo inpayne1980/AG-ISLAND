@@ -1,3 +1,5 @@
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
 
 /**
  * Simulated Next.js API Route for Product Handling

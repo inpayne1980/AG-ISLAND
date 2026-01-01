@@ -1,3 +1,5 @@
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
 
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../../../../lib/supabase';
@@ -136,7 +138,7 @@ export const DynamicLandingPage: React.FC<LandingPageProps> = ({ handle, product
 
         {/* Small Footer Text */}
         <p className="text-[8px] text-center text-slate-400 leading-relaxed uppercase tracking-widest px-10 opacity-60">
-          This landing page was generated automatically. All product photography is AI-enhanced UGC based on original assets.
+          This landing page was generated automatically. All product photography is AI-enhanced UGC based on original assets. NO creator payouts, NO native checkout, NO self-serve billing.
         </p>
       </div>
 

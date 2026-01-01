@@ -1,3 +1,5 @@
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
 
 /**
  * AdGenius AI Studio Connector
@@ -13,6 +15,7 @@ interface StudioResponse {
 /**
  * Triggers the external AI Studio generation process.
  * In production, this would communicate with a video generation pipeline (e.g. Veo, Runway, or custom worker).
+ * NO creator payouts, NO native checkout, NO self-serve billing.
  */
 export async function callAIStudio(brand: string, imageUrl: string): Promise<StudioResponse> {
   console.log(`[AI-STUDIO] Triggering high-fidelity UGC generation for Brand: ${brand}`);

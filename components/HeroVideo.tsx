@@ -1,3 +1,5 @@
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
 
 import React from 'react';
 
@@ -18,12 +20,16 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ videoUrl, posterUrl }) => 
           loop 
           playsInline
           className="w-full h-full object-cover"
+          // @ts-ignore
+          fetchPriority="high"
         />
       ) : (
         <img 
           src={posterUrl} 
           className="w-full h-full object-cover opacity-80"
           alt="Product Hero"
+          // @ts-ignore
+          fetchPriority="high"
         />
       )}
       

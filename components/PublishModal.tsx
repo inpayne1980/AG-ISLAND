@@ -1,3 +1,5 @@
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
 
 import React, { useState } from 'react';
 import { GeneratedContent, PlatformType } from '../types';
@@ -11,7 +13,7 @@ interface PublishModalProps {
 
 export const PublishModal: React.FC<PublishModalProps> = ({ content, onClose, onPublish }) => {
   const [platform, setPlatform] = useState<PlatformType>('instagram');
-  const [caption, setCaption] = useState("Just launched: The Signature Collection. AI-enhanced perfection. #AdGenius #AI #Design");
+  const [caption, setCaption] = useState("Just launched: The Signature Collection. AI-enhanced perfection. #AdGenius #AI #Design. NO creator payouts, NO native checkout, NO self-serve billing.");
   const [scheduledAt, setScheduledAt] = useState(new Date().toISOString().slice(0, 16));
 
   const charLimit = platform === 'twitter' ? 280 : 2200;

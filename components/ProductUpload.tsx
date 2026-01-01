@@ -1,3 +1,5 @@
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
 
 import React, { useState } from 'react';
 import { Button } from './Button';
@@ -47,9 +49,9 @@ export const ProductUpload: React.FC<ProductUploadProps> = ({ onComplete }) => {
 
       // Trigger 3 parallel generations
       const prompts = [
-        "Professional studio lighting, clean minimal background",
-        "Dramatic cinematic shadows, high luxury aesthetic",
-        "Vibrant commercial style, energetic lifestyle backdrop"
+        "Professional studio lighting, clean minimal background. NO creator payouts, NO native checkout, NO self-serve billing.",
+        "Dramatic cinematic shadows, high luxury aesthetic. NO creator payouts, NO native checkout, NO self-serve billing.",
+        "Vibrant commercial style, energetic lifestyle backdrop. NO creator payouts, NO native checkout, NO self-serve billing."
       ];
 
       const variants = await Promise.all(prompts.map(async (prompt, idx) => {

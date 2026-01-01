@@ -1,3 +1,5 @@
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
 
 import React from 'react';
 import { Button } from './Button';
@@ -45,7 +47,7 @@ export const UpgradeNudge: React.FC<UpgradeNudgeProps> = ({ onClose, reason }) =
 
         <div className="mt-8 pt-8 border-t border-deepSand flex flex-col items-center gap-2">
           <div className="text-[8px] font-black text-slate-400 uppercase tracking-[0.2em]">External Billing Only</div>
-          <p className="text-[8px] font-bold text-slate-300 uppercase max-w-[240px]">Self-serve payment management is disabled. All project billing is handled externally via your account representative.</p>
+          <p className="text-[8px] font-bold text-slate-300 uppercase max-w-[240px]">Self-serve payment management is disabled. All project billing is handled externally via your account representative. NO creator payouts, NO native checkout, NO self-serve billing.</p>
         </div>
       </div>
     </div>

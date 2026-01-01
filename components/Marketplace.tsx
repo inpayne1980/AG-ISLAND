@@ -1,9 +1,13 @@
 
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
+
 import React, { useState } from 'react';
 import { BrandDeal, CreatorProfile } from '../types';
 import { BRAND_DEALS } from '../constants';
 import { Button } from './Button';
 
+// Added missing interface for Marketplace component props
 interface MarketplaceProps {
   profile: CreatorProfile;
 }
@@ -12,7 +16,7 @@ export const Marketplace: React.FC<MarketplaceProps> = ({ profile }) => {
   const [pitchingTo, setPitchingTo] = useState<BrandDeal | null>(null);
 
   const generatePitch = (deal: BrandDeal) => {
-    return `Hi ${deal.brand} team!\n\nI saw your "${deal.title}" opportunity on AdGenius. As a creator specializing in ${deal.niche} AI-renders, I'd love to collaborate. My portfolio features verified high-fidelity assets.\n\nYou can view my full media kit and portfolio at: vendo.bio/${profile.handle}\n\nI handle my own billing directly. Let me know if you'd like to discuss a custom project!\n- ${profile.displayName}`;
+    return `Hi ${deal.brand} team!\n\nI saw your "${deal.title}" opportunity on AdGenius. As a creator specializing in ${deal.niche} AI-renders, I'd love to collaborate. My portfolio features verified high-fidelity assets.\n\nYou can view my full media kit and portfolio at: vendo.bio/${profile.handle}\n\nI handle my own billing directly. Let me know if you'd like to discuss a custom project!\n- ${profile.displayName}\n\nNO creator payouts, NO native checkout, NO self-serve billing.`;
   };
 
   return (

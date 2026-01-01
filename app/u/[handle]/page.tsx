@@ -1,3 +1,5 @@
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
 
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../../../lib/supabase';
@@ -134,7 +136,7 @@ export const CreatorPortfolioPage: React.FC<PortfolioPageProps> = ({ handle }) =
 
       {/* Footer */}
       <div className="mt-32 text-center opacity-30">
-        <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.4em]">Powered by AdGenius • 0% Commission</p>
+        <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.4em]">Powered by AdGenius • 0% Commission • NO creator payouts, NO native checkout, NO self-serve billing.</p>
       </div>
     </div>
   );

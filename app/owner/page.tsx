@@ -1,3 +1,5 @@
+// Vendo.bio constraint: money flows AROUND us, never THROUGH us
+// External links ONLY — no Stripe Checkout on landing pages.
 
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabase';
@@ -99,7 +101,7 @@ export default function OwnerDashboard() {
         <div className="flex justify-between items-end mb-16">
           <div>
             <h1 className="text-5xl font-black text-slate-900 uppercase tracking-tighter">Owner Dashboard</h1>
-            <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mt-2">Manage Subscriptions &bull; External Stripe Controls</p>
+            <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mt-2">Manage Subscriptions &bull; External Stripe Controls</p>
           </div>
           <div className="flex gap-4">
             <div className="neu-card bg-brightSand px-6 py-3 flex items-center gap-3">
@@ -179,7 +181,7 @@ export default function OwnerDashboard() {
              <div>
                 <h4 className="font-black text-slate-800 uppercase text-xs mb-2">Billing Guardrail Policy</h4>
                 <p className="text-[10px] text-slate-500 leading-relaxed font-medium uppercase tracking-widest max-w-2xl">
-                  Self-serve billing is strictly disabled (8.5). All Stripe interactions are owner-initiated. Pro tier enforces a strict 5 product limit per month as per Vendo.bio v1 policy.
+                  Self-serve billing is strictly disabled (8.5). All Stripe interactions are owner-initiated. Pro tier enforces a strict 5 product limit per month as per Vendo.bio v1 policy. NO creator payouts, NO native checkout, NO self-serve billing.
                 </p>
              </div>
           </div>
