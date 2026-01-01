@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdGenius AI | Caribbean Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              sand: '#F4E7D3',
+              turquoise: '#40E0D0',
+              coral: '#FF7F50',
+              deepSand: '#e0d3bf',
+              brightSand: '#fffbf0',
+            },
+            boxShadow: {
+              'neu-flat': '9px 9px 16px #e0d3bf, -9px -9px 16px #fffbf0',
+              'neu-pressed': 'inset 9px 9px 16px #e0d3bf, inset -9px -9px 16px #fffbf0',
+              'neu-sm': '4px 4px 8px #e0d3bf, -4px -4px 8px #fffbf0',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { background-color: #F4E7D3; color: #4a4a4a; }
+      .neu-card { background: #F4E7D3; border-radius: 2rem; box-shadow: 9px 9px 16px #e0d3bf, -9px -9px 16px #fffbf0; }
+      .neu-inset { background: #F4E7D3; border-radius: 1rem; box-shadow: inset 4px 4px 8px #e0d3bf, inset -4px -4px 8px #fffbf0; }
+      .neu-button { 
+        background: #F4E7D3; 
+        box-shadow: 6px 6px 12px #e0d3bf, -6px -6px 12px #fffbf0;
+        transition: all 0.2s ease;
+      }
+      .neu-button:active { 
+        box-shadow: inset 4px 4px 8px #e0d3bf, inset -4px -4px 8px #fffbf0;
+        transform: scale(0.98);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+</head>
+  <body class="min-h-screen">
+    <div id="root"></div>
+  </body>
+</html>
